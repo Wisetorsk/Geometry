@@ -19,6 +19,32 @@ namespace Geometry
         public double Theta => Math.Atan(Dy / Dx);
         public double Magnitude => Math.Sqrt(Dx*Dx + Dy*Dy);
 
+
+        public static Vector operator- (Vector a, Vector b)
+        {
+            double x, y;
+            x = a.X - b.X;
+            y = a.Y - b.Y;
+            Vector output = new Vector(x, y);
+            return output;
+        }
+
+        public static Vector operator+ (Vector a, Vector b)
+        {
+            double x, y;
+            x = a.X + b.X;
+            y = a.Y + b.Y;
+            var output = new Vector(x, y);
+            return output;
+        }
+
+        public static double operator* (Vector a, Vector b)
+        {
+            double result;
+            result = a.X * b.X + a.Y * b.Y;
+            return result;
+        }
+
         public Vector(double x, double y)
         {
             Origin = new Point(0, 0);
@@ -111,6 +137,11 @@ namespace Geometry
         {
             Vector intermediate = new Vector(A, B);
             return intermediate.Dy;
+        }
+
+        public override string ToString()
+        {
+            return $"i: {X}\tj: {Y}";
         }
     }
 }
