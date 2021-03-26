@@ -45,6 +45,29 @@ namespace Geometry
             return result;
         }
 
+        public static Vector operator* (Vector a, double b)
+        {
+            Vector result;
+            result = new Vector(a.X * b, a.Y * b);
+            return result;
+        }
+
+        public static Vector operator/ (Vector a, double b)
+        {
+            Vector result;
+            result = new Vector(a.X / b, a.Y / b);
+            return result;
+        }
+
+        public static double Determinant(Vector a, Vector b)
+        {
+            double result;
+
+            result = a.X * b.Y - a.Y * b.X;
+
+            return result;
+        }
+
         public Vector(double x, double y)
         {
             Origin = new Point(0, 0);
